@@ -33,8 +33,10 @@ export default function ProductOverview() {
           PRODUCT PLATFORM
         </p>
 
-        <h1 style={{ fontSize: 52, lineHeight: 1.1, margin: "16px 0" }}>
-          Design better products, faster.
+        <img src="/hero.png" />
+
+        <h1 style={{ fontSize: 52, lineHeight: 1.1, margin: "16px 0", color: "#3b82f6" }}>
+          Design better products, faster than ever.
         </h1>
 
         <p
