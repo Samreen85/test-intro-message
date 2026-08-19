@@ -33,7 +33,7 @@ export default function ProductOverview() {
           PRODUCT PLATFORM
         </p>
 
-        <h1 style={{ fontSize: 52, lineHeight: 1.1, margin: "16px 0" }}>
+        <h1 style={{ fontSize: "80px", color: "#00ff00" }}>Secure Checkout</h1>
           Design better products, faster.
         </h1>
 
