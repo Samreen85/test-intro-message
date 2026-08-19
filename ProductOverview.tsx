@@ -1,8 +1,4 @@
-from pathlib import Path
-
-path = Path("/mnt/data/ProductOverview.tsx")
-
-content = """import React from "react";
+import React from "react";
 
 const features = [
   {
@@ -24,21 +20,44 @@ const features = [
 
 export default function ProductOverview() {
   return (
-    <main style={{ fontFamily: "Inter, Arial, sans-serif", color: "#111827" }}>
+    <main
+      style={{
+        fontFamily: "Inter, Arial, sans-serif",
+        color: "#111827",
+        background: "#f9fafb",
+        minHeight: "100vh",
+      }}
+    >
       <section
         style={{
           maxWidth: 1100,
           margin: "0 auto",
-          padding: "80px 24px",
+          padding: "72px 24px 64px",
           textAlign: "center",
         }}
       >
-        <p style={{ fontSize: 14, fontWeight: 600, color: "#6366f1" }}>
+        <p
+          style={{
+            fontSize: 13,
+            fontWeight: 700,
+            letterSpacing: "0.08em",
+            color: "#6366f1",
+            margin: "0 0 16px",
+          }}
+        >
           PRODUCT PLATFORM
         </p>
 
-        {/* UI change: heading was made unnecessarily large */}
-        <h1 style={{ fontSize: 72, lineHeight: 1.1, margin: "16px 0" }}>
+        <h1
+          style={{
+            maxWidth: 760,
+            margin: "0 auto 20px",
+            fontSize: "clamp(40px, 6vw, 56px)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.03em",
+            fontWeight: 700,
+          }}
+        >
           Build better products, faster.
         </h1>
 
@@ -55,14 +74,15 @@ export default function ProductOverview() {
           beautiful digital experiences from a single place.
         </p>
 
-        {/* UI change: CTA has inconsistent padding */}
         <button
           style={{
             border: 0,
             borderRadius: 10,
-            padding: "8px 40px",
+            padding: "14px 24px",
+            minHeight: 48,
             background: "#111827",
             color: "#fff",
+            fontSize: 15,
             fontWeight: 600,
             cursor: "pointer",
           }}
@@ -75,28 +95,42 @@ export default function ProductOverview() {
         style={{
           maxWidth: 1100,
           margin: "0 auto",
-          padding: "0 24px 80px",
+          padding: "0 24px 72px",
           display: "grid",
-
-          // UI issue: fixed three-column layout will overflow on small screens
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: 8,
+          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+          gap: 20,
         }}
       >
         {features.map((feature) => (
           <article
             key={feature.title}
             style={{
-              padding: 16,
+              padding: "24px",
               border: "1px solid #e5e7eb",
               borderRadius: 16,
               background: "#fff",
+              boxShadow: "0 4px 14px rgba(17, 24, 39, 0.04)",
             }}
           >
-            <h2 style={{ fontSize: 20, marginBottom: 10 }}>
+            <h2
+              style={{
+                fontSize: 19,
+                lineHeight: 1.35,
+                margin: "0 0 10px",
+                fontWeight: 650,
+              }}
+            >
               {feature.title}
             </h2>
-            <p style={{ color: "#6b7280", lineHeight: 1.6, margin: 0 }}>
+
+            <p
+              style={{
+                color: "#6b7280",
+                lineHeight: 1.6,
+                margin: 0,
+                fontSize: 15,
+              }}
+            >
               {feature.description}
             </p>
           </article>
@@ -105,7 +139,3 @@ export default function ProductOverview() {
     </main>
   );
 }
-"""
-
-path.write_text(content, encoding="utf-8")
-print(path)
