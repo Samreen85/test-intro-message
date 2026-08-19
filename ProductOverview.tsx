@@ -1,4 +1,8 @@
-import React from "react";
+from pathlib import Path
+
+path = Path("/mnt/data/ProductOverview.tsx")
+
+content = """import React from "react";
 
 const features = [
   {
@@ -33,8 +37,9 @@ export default function ProductOverview() {
           PRODUCT PLATFORM
         </p>
 
-        <h1 style={{ fontSize: 52, lineHeight: 1.1, margin: "16px 0" }}>
-          Design better products, faster.
+        {/* UI change: heading was made unnecessarily large */}
+        <h1 style={{ fontSize: 72, lineHeight: 1.1, margin: "16px 0" }}>
+          Build better products, faster.
         </h1>
 
         <p
@@ -50,18 +55,19 @@ export default function ProductOverview() {
           beautiful digital experiences from a single place.
         </p>
 
+        {/* UI change: CTA has inconsistent padding */}
         <button
           style={{
             border: 0,
             borderRadius: 10,
-            padding: "13px 22px",
+            padding: "8px 40px",
             background: "#111827",
             color: "#fff",
             fontWeight: 600,
             cursor: "pointer",
           }}
         >
-          Get started
+          Start designing
         </button>
       </section>
 
@@ -71,15 +77,17 @@ export default function ProductOverview() {
           margin: "0 auto",
           padding: "0 24px 80px",
           display: "grid",
+
+          // UI issue: fixed three-column layout will overflow on small screens
           gridTemplateColumns: "repeat(3, 1fr)",
-          gap: 20,
+          gap: 8,
         }}
       >
         {features.map((feature) => (
           <article
             key={feature.title}
             style={{
-              padding: 24,
+              padding: 16,
               border: "1px solid #e5e7eb",
               borderRadius: 16,
               background: "#fff",
@@ -97,3 +105,7 @@ export default function ProductOverview() {
     </main>
   );
 }
+"""
+
+path.write_text(content, encoding="utf-8")
+print(path)
